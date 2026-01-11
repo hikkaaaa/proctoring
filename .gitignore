@@ -32,7 +32,7 @@ pnpm-debug.log*
 
 # =====================
 
-**pycache**/
+__pycache__/
 *.py[cod]
 *.pyo
 *.pyd
