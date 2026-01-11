@@ -3,7 +3,7 @@ export const PROCTORING_CONFIG = {
     GAZE_ALLOWANCE_MS: 3000,
 
     // Сколько миллисекунд можно отсутствовать в кадре (5 секунд)
-    MISSING_PERSON_ALLOWANCE_MS: 3000,
+    MISSING_PERSON_ALLOWANCE_MS: 5000,
 
     // Чувствительность к количеству лиц (сразу флаг)
     MAX_FACES: 1,

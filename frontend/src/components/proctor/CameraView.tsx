@@ -1,39 +1,37 @@
-//Это React-компонент, который ты увидишь на экране.
 "use client";
+
 import React, { useEffect, useRef, useState } from 'react';
 import { ProctoringEngine, ProctoringUpdate } from '@/modules/proctoring-sdk/core/ProctoringEngine';
 
 const CameraView = () => {
     const videoRef = useRef<HTMLVideoElement>(null);
     const canvasRef = useRef<HTMLCanvasElement>(null);
-    
-    // Состояние теперь хранит только то, что нужно для отрисовки
+
     const [status, setStatus] = useState("System Offline");
     const [direction, setDirection] = useState<string>("CENTER");
+    const [engineInstance, setEngineInstance] = useState<ProctoringEngine | null>(null);
+    const [warning, setWarning] = useState<string | null>(null);
 
     useEffect(() => {
-        // 1. Создаем экземпляр движка
         const engine = new ProctoringEngine();
+        setEngineInstance(engine);
 
         const start = async () => {
             if (videoRef.current && canvasRef.current) {
                 const canvas = canvasRef.current;
                 const ctx = canvas.getContext('2d');
 
-                // 2. Подписываемся на обновления от движка
                 engine.subscribe((update: ProctoringUpdate) => {
                     setStatus(update.status);
                     setDirection(update.direction);
+                    setWarning(update.violationWarning || null);
 
-                    // Отрисовка (View Logic)
                     if (ctx && videoRef.current) {
-                        // Синхронизируем размер канваса с видео (на всякий случай)
-                        canvas.width = videoRef.current.width;
-                        canvas.height = videoRef.current.height;
-                        
+                        canvas.width = videoRef.current.videoWidth || 640;
+                        canvas.height = videoRef.current.videoHeight || 480;
+
                         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-                        // Рисуем точки, если они есть
                         if (update.landmarks) {
                             ctx.fillStyle = update.direction === "CENTER" ? "#00FF00" : "#FF0000";
                             for (const point of update.landmarks) {
@@ -47,46 +45,63 @@ const CameraView = () => {
                     }
                 });
 
-                // 3. Запускаем
                 await engine.start(videoRef.current);
             }
         };
 
         start();
 
-        // 4. Очистка при уходе со страницы
         return () => {
             engine.stop();
         };
     }, []);
 
+    const handleFinishExam = () => {
+        if (engineInstance) {
+            engineInstance.stop();
+            engineInstance.downloadReport();
+            alert("Exam Finished. Report downloaded.");
+        }
+    };
+
     const borderColor = direction === "CENTER" ? "green" : "red";
 
     return (
-        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-            
-            <div style={{ 
-                position: 'relative', 
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', position: 'relative' }}>
+
+            {/* Warning Banner */}
+            {warning && (
+                <div style={{
+                    position: 'absolute', top: '10px', backgroundColor: 'red', color: 'white',
+                    padding: '8px 20px', borderRadius: '20px', fontWeight: 'bold', zIndex: 100,
+                    animation: 'pulse 1.5s infinite'
+                }}>
+                    {warning}
+                </div>
+            )}
+
+            <div style={{
+                position: 'relative',
                 border: `4px solid ${borderColor}`,
                 borderRadius: '8px',
                 overflow: 'hidden',
                 lineHeight: 0
             }}>
-                <video 
-                    ref={videoRef} 
-                    style={{ display: 'block', transform: 'scaleX(-1)' }}
-                    playsInline 
-                    muted 
+                <video
+                    ref={videoRef}
+                    style={{ display: 'block', transform: 'scaleX(-1)', maxWidth: '100%' }}
+                    playsInline
+                    muted
                 />
-                <canvas 
+                <canvas
                     ref={canvasRef}
-                    style={{ 
-                        position: 'absolute', top: 0, left: 0, 
-                        width: '100%', height: '100%', 
-                        transform: 'scaleX(-1)' 
+                    style={{
+                        position: 'absolute', top: 0, left: 0,
+                        width: '100%', height: '100%',
+                        transform: 'scaleX(-1)'
                     }}
                 />
-                
+
                 {direction !== "CENTER" && (
                     <div style={{
                         position: 'absolute', top: '50%', left: '50%',
@@ -99,13 +114,33 @@ const CameraView = () => {
                     </div>
                 )}
             </div>
-            
-            <div style={{ 
-                marginTop: '10px', padding: '10px', 
-                backgroundColor: '#333', color: 'white', borderRadius: '5px' 
+
+            <div style={{
+                marginTop: '10px', padding: '10px',
+                backgroundColor: '#333', color: 'white', borderRadius: '5px',
+                textAlign: 'center'
             }}>
                 Status: {status}
             </div>
+
+            <button
+                onClick={handleFinishExam}
+                style={{
+                    marginTop: '20px', padding: '12px 24px', backgroundColor: '#2563eb',
+                    color: 'white', borderRadius: '12px', border: 'none', fontWeight: 'bold',
+                    fontSize: '18px', cursor: 'pointer', boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)'
+                }}
+            >
+                Завершить экзамен и скачать отчет
+            </button>
+
+            <style jsx>{`
+                @keyframes pulse {
+                    0% { transform: scale(1); }
+                    50% { transform: scale(1.05); }
+                    100% { transform: scale(1); }
+                }
+            `}</style>
         </div>
     );
 };

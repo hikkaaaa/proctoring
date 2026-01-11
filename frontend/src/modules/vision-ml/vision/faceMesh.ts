@@ -4,7 +4,7 @@ import { FaceMesh, Results } from "@mediapipe/face_mesh";
 export class FaceMeshService {
     private faceMesh: FaceMesh | null = null;
 
-    constructor() {}
+    constructor() { }
 
     public async initialize(onResults: (results: Results) => void) {
         this.faceMesh = new FaceMesh({
@@ -14,7 +14,7 @@ export class FaceMeshService {
         });
 
         this.faceMesh.setOptions({
-            maxNumFaces: 1,
+            maxNumFaces: 2,
             refineLandmarks: true, // Более точные глаза и губы
             minDetectionConfidence: 0.5,
             minTrackingConfidence: 0.5,
