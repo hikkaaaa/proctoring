@@ -18,7 +18,7 @@ export class ProctoringEngine {
     private estimator: GazeEstimator;
     private isRunning: boolean = false;
     private animationFrameId: number | null = null;
-    
+
     // Функция, которую мы будем дергать, чтобы обновить UI
     private onUpdate: UpdateListener | null = null;
 
@@ -36,7 +36,7 @@ export class ProctoringEngine {
     // 2. Главный метод старта
     public async start(videoElement: HTMLVideoElement) {
         if (this.isRunning) return;
-        
+
         try {
             this.notify("Initializing Camera...");
             this.camera.attachVideo(videoElement);
@@ -53,7 +53,7 @@ export class ProctoringEngine {
 
             this.isRunning = true;
             this.loop();
-            
+
         } catch (error) {
             console.error("Engine Start Error:", error);
             this.notify("Error: System failed to start");
@@ -66,10 +66,10 @@ export class ProctoringEngine {
 
         if (results.multiFaceLandmarks.length > 0) {
             const landmarks = results.multiFaceLandmarks[0];
-            
+
             // Спрашиваем у GazeEstimator, куда смотрит лицо
             const direction = this.estimator.estimate(landmarks);
-            
+
             // Отправляем данные в React
             this.onUpdate({
                 direction: direction,
@@ -93,7 +93,7 @@ export class ProctoringEngine {
         if (video) {
             await this.ml.send(video);
         }
-        
+
         this.animationFrameId = requestAnimationFrame(this.loop);
     }
 

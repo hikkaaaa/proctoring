@@ -3,7 +3,11 @@
 import React, { useState } from 'react';
 import { Camera, Mic, Monitor, Globe, ShieldAlert, CheckCircle2, Lock } from 'lucide-react';
 
-export default function ProctoringGateway() {
+interface ProctoringGatewayProps {
+    onStart: () => void;
+}
+
+export default function ProctoringGateway({ onStart }: ProctoringGatewayProps) {
     const [checkedItems, setCheckedItems] = useState({
         video: false,
         personalData: false,
@@ -104,9 +108,10 @@ export default function ProctoringGateway() {
                     {/* Main Button */}
                     <button
                         disabled={!isAllChecked}
+                        onClick={onStart}
                         className={`w-full py-5 rounded-2xl font-bold text-xl flex items-center justify-center transition-all duration-300 shadow-lg ${isAllChecked
-                                ? 'bg-orange-600 text-white hover:bg-orange-700 shadow-orange-200 cursor-pointer hover:scale-[1.01] active:scale-[0.99]'
-                                : 'bg-gray-100 text-gray-400 cursor-not-allowed opacity-80 shadow-none'
+                            ? 'bg-orange-600 text-white hover:bg-orange-700 shadow-orange-200 cursor-pointer hover:scale-[1.01] active:scale-[0.99]'
+                            : 'bg-gray-100 text-gray-400 cursor-not-allowed opacity-80 shadow-none'
                             }`}
                     >
                         <Lock className="mr-3 h-6 w-6" />
