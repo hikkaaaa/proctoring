@@ -1,0 +1,120 @@
+EXAM INTEGRITY REPORT
+Student ID: 12345 (Example)
+Date: 1/12/2026, 12:50:34 AM
+------------------------------------------------
+TIME   | TYPE             | DETAILS
+------------------------------------------------
+[00:00] | SYSTEM           | Exam Session Started
+[00:12] | TAB_SWITCH       | User switched tab (Hidden)
+[00:12] | TAB_SWITCH       | User returned to tab
+[00:14] | TAB_SWITCH       | User switched tab (Hidden)
+[00:16] | TAB_SWITCH       | User returned to tab
+[00:17] | TAB_SWITCH       | Window lost focus (Alt+Tab or Click outside)
+[00:18] | TAB_SWITCH       | User switched tab (Hidden)
+[00:18] | TAB_SWITCH       | User returned to tab
+[00:20] | TAB_SWITCH       | User switched tab (Hidden)
+[00:20] | TAB_SWITCH       | User returned to tab
+[00:22] | TAB_SWITCH       | Window lost focus (Alt+Tab or Click outside)
+[00:26] | TAB_SWITCH       | Window lost focus (Alt+Tab or Click outside)
+[00:36] | TAB_SWITCH       | Window lost focus (Alt+Tab or Click outside)
+[00:36] | TAB_SWITCH       | User switched tab (Hidden)
+[00:40] | TAB_SWITCH       | User returned to tab
+[00:48] | MULTIPLE_FACES   | Detected more than 1 person!
+[01:03] | MULTIPLE_FACES   | Detected more than 1 person!
+[01:03] | MULTIPLE_FACES   | Detected more than 1 person!
+[01:03] | MULTIPLE_FACES   | Detected more than 1 person!
+[01:03] | MULTIPLE_FACES   | Detected more than 1 person!
+[01:03] | MULTIPLE_FACES   | Detected more than 1 person!
+[01:03] | MULTIPLE_FACES   | Detected more than 1 person!
+[01:03] | MULTIPLE_FACES   | Detected more than 1 person!
+[01:03] | MULTIPLE_FACES   | Detected more than 1 person!
+[01:03] | MULTIPLE_FACES   | Detected more than 1 person!
+[01:03] | MULTIPLE_FACES   | Detected more than 1 person!
+[01:03] | MULTIPLE_FACES   | Detected more than 1 person!
+[01:03] | MULTIPLE_FACES   | Detected more than 1 person!
+[01:03] | MULTIPLE_FACES   | Detected more than 1 person!
+[01:03] | MULTIPLE_FACES   | Detected more than 1 person!
+[01:03] | MULTIPLE_FACES   | Detected more than 1 person!
+[01:03] | MULTIPLE_FACES   | Detected more than 1 person!
+[01:03] | MULTIPLE_FACES   | Detected more than 1 person!
+[01:03] | MULTIPLE_FACES   | Detected more than 1 person!
+[01:03] | MULTIPLE_FACES   | Detected more than 1 person!
+[01:03] | MULTIPLE_FACES   | Detected more than 1 person!
+[01:03] | MULTIPLE_FACES   | Detected more than 1 person!
+[01:03] | MULTIPLE_FACES   | Detected more than 1 person!
+[01:03] | MULTIPLE_FACES   | Detected more than 1 person!
+[01:03] | MULTIPLE_FACES   | Detected more than 1 person!
+[01:03] | MULTIPLE_FACES   | Detected more than 1 person!
+[01:03] | MULTIPLE_FACES   | Detected more than 1 person!
+[01:03] | MULTIPLE_FACES   | Detected more than 1 person!
+[01:03] | MULTIPLE_FACES   | Detected more than 1 person!
+[01:03] | MULTIPLE_FACES   | Detected more than 1 person!
+[01:04] | MULTIPLE_FACES   | Detected more than 1 person!
+[01:04] | MULTIPLE_FACES   | Detected more than 1 person!
+[01:04] | MULTIPLE_FACES   | Detected more than 1 person!
+[01:04] | MULTIPLE_FACES   | Detected more than 1 person!
+[01:04] | MULTIPLE_FACES   | Detected more than 1 person!
+[01:04] | MULTIPLE_FACES   | Detected more than 1 person!
+[01:04] | MULTIPLE_FACES   | Detected more than 1 person!
+[01:04] | MULTIPLE_FACES   | Detected more than 1 person!
+[01:04] | MULTIPLE_FACES   | Detected more than 1 person!
+[01:04] | MULTIPLE_FACES   | Detected more than 1 person!
+[01:04] | MULTIPLE_FACES   | Detected more than 1 person!
+[01:04] | MULTIPLE_FACES   | Detected more than 1 person!
+[01:04] | MULTIPLE_FACES   | Detected more than 1 person!
+[01:04] | MULTIPLE_FACES   | Detected more than 1 person!
+[01:04] | MULTIPLE_FACES   | Detected more than 1 person!
+[01:04] | MULTIPLE_FACES   | Detected more than 1 person!
+[01:04] | MULTIPLE_FACES   | Detected more than 1 person!
+[01:04] | MULTIPLE_FACES   | Detected more than 1 person!
+[01:04] | MULTIPLE_FACES   | Detected more than 1 person!
+[01:04] | MULTIPLE_FACES   | Detected more than 1 person!
+[01:04] | MULTIPLE_FACES   | Detected more than 1 person!
+[01:04] | MULTIPLE_FACES   | Detected more than 1 person!
+[01:04] | MULTIPLE_FACES   | Detected more than 1 person!
+[01:04] | MULTIPLE_FACES   | Detected more than 1 person!
+[01:04] | MULTIPLE_FACES   | Detected more than 1 person!
+[01:04] | MULTIPLE_FACES   | Detected more than 1 person!
+[01:04] | MULTIPLE_FACES   | Detected more than 1 person!
+[01:04] | MULTIPLE_FACES   | Detected more than 1 person!
+[01:04] | MULTIPLE_FACES   | Detected more than 1 person!
+[01:04] | MULTIPLE_FACES   | Detected more than 1 person!
+[01:04] | MULTIPLE_FACES   | Detected more than 1 person!
+[01:04] | MULTIPLE_FACES   | Detected more than 1 person!
+[01:04] | MULTIPLE_FACES   | Detected more than 1 person!
+[01:04] | MULTIPLE_FACES   | Detected more than 1 person!
+[01:04] | MULTIPLE_FACES   | Detected more than 1 person!
+[01:04] | MULTIPLE_FACES   | Detected more than 1 person!
+[01:04] | MULTIPLE_FACES   | Detected more than 1 person!
+[01:05] | MULTIPLE_FACES   | Detected more than 1 person!
+[01:05] | MULTIPLE_FACES   | Detected more than 1 person!
+[01:05] | MULTIPLE_FACES   | Detected more than 1 person!
+[01:05] | MULTIPLE_FACES   | Detected more than 1 person!
+[01:05] | MULTIPLE_FACES   | Detected more than 1 person!
+[01:05] | MULTIPLE_FACES   | Detected more than 1 person!
+[01:05] | MULTIPLE_FACES   | Detected more than 1 person!
+[01:05] | MULTIPLE_FACES   | Detected more than 1 person!
+[01:05] | MULTIPLE_FACES   | Detected more than 1 person!
+[01:05] | MULTIPLE_FACES   | Detected more than 1 person!
+[01:05] | MULTIPLE_FACES   | Detected more than 1 person!
+[01:05] | MULTIPLE_FACES   | Detected more than 1 person!
+[01:05] | MULTIPLE_FACES   | Detected more than 1 person!
+[01:05] | MULTIPLE_FACES   | Detected more than 1 person!
+[01:05] | MULTIPLE_FACES   | Detected more than 1 person!
+[01:05] | MULTIPLE_FACES   | Detected more than 1 person!
+[01:05] | MULTIPLE_FACES   | Detected more than 1 person!
+[01:05] | MULTIPLE_FACES   | Detected more than 1 person!
+[01:05] | MULTIPLE_FACES   | Detected more than 1 person!
+[01:05] | MULTIPLE_FACES   | Detected more than 1 person!
+[01:05] | MULTIPLE_FACES   | Detected more than 1 person!
+[01:05] | MULTIPLE_FACES   | Detected more than 1 person!
+[01:05] | MULTIPLE_FACES   | Detected more than 1 person!
+[01:05] | MULTIPLE_FACES   | Detected more than 1 person!
+[01:05] | MULTIPLE_FACES   | Detected more than 1 person!
+[01:05] | MULTIPLE_FACES   | Detected more than 1 person!
+[01:05] | MULTIPLE_FACES   | Detected more than 1 person!
+[01:05] | MULTIPLE_FACES   | Detected more than 1 person!
+[01:05] | MULTIPLE_FACES   | Detected more than 1 person!
+[01:11] | SYSTEM           | Exam Session Ended
+------------------------------------------------
+Total Events: 112

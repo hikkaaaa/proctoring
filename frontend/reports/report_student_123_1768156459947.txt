@@ -1,0 +1,12 @@
+EXAM INTEGRITY REPORT
+Student ID: 12345 (Example)
+Date: 1/11/2026, 11:34:19 PM
+------------------------------------------------
+TIME   | TYPE             | DETAILS
+------------------------------------------------
+[00:00] | SYSTEM           | Exam Session Started
+[00:07] | GAZE_VIOLATION   | Violation confirmed: LOOKING_LEFT for > 3s
+[00:10] | GAZE_VIOLATION   | Violation confirmed: LOOKING_LEFT for > 3s
+[00:19] | SYSTEM           | Exam Session Ended
+------------------------------------------------
+Total Events: 4

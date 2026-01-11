@@ -1,0 +1,16 @@
+EXAM INTEGRITY REPORT
+Student ID: 12345 (Example)
+Date: 1/12/2026, 12:41:41 AM
+------------------------------------------------
+TIME   | TYPE             | DETAILS
+------------------------------------------------
+[00:00] | SYSTEM           | Exam Session Started
+[00:28] | GAZE_VIOLATION   | Violation confirmed: LOOKING_LEFT for > 3s
+[00:34] | GAZE_VIOLATION   | Violation confirmed: LOOKING_RIGHT for > 3s
+[00:40] | GAZE_VIOLATION   | Violation confirmed: LOOKING_DOWN for > 3s
+[00:42] | TAB_SWITCH       | Window lost focus (Alt+Tab or Click outside)
+[00:42] | TAB_SWITCH       | User switched tab (Hidden)
+[00:47] | TAB_SWITCH       | User returned to tab
+[00:49] | SYSTEM           | Exam Session Ended
+------------------------------------------------
+Total Events: 8

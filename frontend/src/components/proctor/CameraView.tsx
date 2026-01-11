@@ -3,7 +3,10 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { ProctoringEngine, ProctoringUpdate } from '@/modules/proctoring-sdk/core/ProctoringEngine';
 
+import { useRouter } from 'next/navigation';
+
 const CameraView = () => {
+    const router = useRouter();
     const videoRef = useRef<HTMLVideoElement>(null);
     const canvasRef = useRef<HTMLCanvasElement>(null);
 
@@ -11,6 +14,8 @@ const CameraView = () => {
     const [direction, setDirection] = useState<string>("CENTER");
     const [engineInstance, setEngineInstance] = useState<ProctoringEngine | null>(null);
     const [warning, setWarning] = useState<string | null>(null);
+    const [isSaving, setIsSaving] = useState(false);
+    const [isSaved, setIsSaved] = useState(false);
 
     useEffect(() => {
         const engine = new ProctoringEngine();
@@ -56,11 +61,21 @@ const CameraView = () => {
         };
     }, []);
 
-    const handleFinishExam = () => {
+    const handleFinishExam = async () => {
         if (engineInstance) {
-            engineInstance.stop();
-            engineInstance.downloadReport();
-            alert("Exam Finished. Report downloaded.");
+            setIsSaving(true);
+            try {
+                engineInstance.stop();
+                await engineInstance.saveReport();
+                setIsSaved(true);
+                alert("Exam Finished. Report saved to server!");
+                // Redirect to analysis page
+                router.push('/exam/id_1/analysis');
+            } catch (error) {
+                alert("Error saving report. Please try again.");
+            } finally {
+                setIsSaving(false);
+            }
         }
     };
 
@@ -125,13 +140,16 @@ const CameraView = () => {
 
             <button
                 onClick={handleFinishExam}
+                disabled={isSaving || isSaved}
                 style={{
-                    marginTop: '20px', padding: '12px 24px', backgroundColor: '#2563eb',
+                    marginTop: '20px', padding: '12px 24px',
+                    backgroundColor: isSaved ? '#10b981' : isSaving ? '#94a3b8' : '#2563eb',
                     color: 'white', borderRadius: '12px', border: 'none', fontWeight: 'bold',
-                    fontSize: '18px', cursor: 'pointer', boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)'
+                    fontSize: '18px', cursor: (isSaving || isSaved) ? 'not-allowed' : 'pointer',
+                    boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)'
                 }}
             >
-                Завершить экзамен и скачать отчет
+                {isSaving ? 'Сохранение...' : isSaved ? 'Отчет сохранен на сервере!' : 'Завершить экзамен и сохранить отчет'}
             </button>
 
             <style jsx>{`

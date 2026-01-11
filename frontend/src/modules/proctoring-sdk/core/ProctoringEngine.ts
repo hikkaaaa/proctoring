@@ -210,16 +210,32 @@ export class ProctoringEngine {
         return content;
     }
 
-    // Вспомогательный метод для скачивания
-    public downloadReport() {
+    // Метод для отправки отчета на сервер
+    public async saveReport() {
         const text = this.generateReport();
-        const blob = new Blob([text], { type: "text/plain" });
-        const link = document.createElement("a");
-        link.href = URL.createObjectURL(blob);
-        link.download = `report_${Date.now()}.txt`;
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
+        const filename = `report_student_123_${Date.now()}.txt`;
+
+        try {
+            const response = await fetch('/api/save-report', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    content: text,
+                    filename: filename
+                }),
+            });
+
+            if (!response.ok) {
+                throw new Error('Failed to save report to server');
+            }
+
+            console.log('Report saved successfully');
+        } catch (error) {
+            console.error('Error in saveReport:', error);
+            throw error;
+        }
     }
 
     private loop = async () => {
